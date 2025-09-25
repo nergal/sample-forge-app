@@ -28,5 +28,9 @@ app:
     architecture: arm64
   id: ari:cloud:ecosystem::app/4977ac2c-f9a3-4749-9e32-556f5632b60b
 permissions:
+  external:
+    fetch:
+      backend:
+        - 'https://api.github.com/'
   scopes:
     - storage:app
