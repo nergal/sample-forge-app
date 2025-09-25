@@ -1,0 +1,32 @@
+modules:
+  jira:adminPage:
+    - key: sample-app-hello-world-admin-page
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: sample-app
+    - key: sample-app-hello-world-admin-auth-page
+      resource: configuration
+      resolver:
+        function: resolver
+      render: native
+      title: auth-app
+      useAsConfig: true
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.tsx
+  - key: configuration
+    path: src/frontend/configuration.tsx
+app:
+  runtime:
+    name: nodejs22.x
+    memoryMB: 256
+    architecture: arm64
+  id: ari:cloud:ecosystem::app/4977ac2c-f9a3-4749-9e32-556f5632b60b
+permissions:
+  scopes:
+    - storage:app
